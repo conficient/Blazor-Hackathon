@@ -33,7 +33,9 @@ namespace ClientServerApp.Server
                     "application/octet-stream"
                 });
             });
-                
+
+            services.AddSignalR();
+
             // Add framework services.
             services.AddMvc().AddJsonOptions(opts =>
             {
@@ -55,6 +57,11 @@ namespace ClientServerApp.Server
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            //app.UseSignalR(routes =>
+            //{
+            //    routes.MapHub<Chat>("chat");
+            //});
 
             app.UseResponseCompression();
             app.UseMvc(routes =>
